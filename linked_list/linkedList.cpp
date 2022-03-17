@@ -23,6 +23,7 @@ class LinkedList{
         head = NULL;
         tail = NULL;
     }
+
     //Inserting new element at head
     void insertAtHead(int d){
         Node* temp = new Node(d);
@@ -45,6 +46,26 @@ class LinkedList{
         }
         tail->next = temp;
         tail = temp;
+    }
+
+    //Inserting an element in the middle 
+    void insertAtMiddle(int position, int d){
+        Node* temp = new Node(d);
+        if(head == NULL){
+            cout << "Invalid operation"<<endl;
+        }
+        /*
+        TODO: Implement a count function and check if position is out of range i.e Position > Number of Nodes
+        */
+        Node* curr = head;
+        int start = 1;
+        while(start < (position-1)){
+            curr = curr->next;
+            start++;
+        }
+        temp->next = curr->next;
+        curr->next = temp;
+
     }
 
     //Printing the list
