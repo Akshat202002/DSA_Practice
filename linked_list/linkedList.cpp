@@ -55,21 +55,30 @@ class LinkedList{
             cout << "Invalid operation"<<endl;
             return; //required because if position ==0 we have to return otherwise element would be inserted at head
         }
+        /*
+        TODO: Implement a count function and check if position is out of range i.e Position > Number of Nodes
+        */
 
-        //inserting element at head
+        //Inserting at start
         if(position==1){
             insertAtHead(d);
             return;
         }
-        /*
-        TODO: Implement a count function and check if position is out of range i.e Position > Number of Nodes
-        */
+
         Node* curr = head;
         int start = 1;
         while(start < (position-1)){
             curr = curr->next;
             start++;
         }
+
+        //Inserting at last
+        if(curr-> next == NULL){
+            insertAtTail(d);
+            return;
+        }
+
+        //Inserting at middle
         temp->next = curr->next;
         curr->next = temp;
     }
