@@ -90,9 +90,9 @@ void levelorder(Node* root) {
         cout << temp-> data << " ";
         q.pop();
         if(temp->left)
-            levelorder(temp-> left);
+            q.push(temp-> left);
         if(temp->right)
-            levelorder(temp-> right);
+            q.push(temp-> right);
     }
 
 }
