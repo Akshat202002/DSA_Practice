@@ -53,9 +53,23 @@ void preorder(Node* root) {
     if(root == NULL) {
         return ;
     }
+    
     cout << root-> data << " ";
     preorder(root->left);
     preorder(root->right);
+
+}
+
+//Postorder Traversal(NLR)
+void postorder(Node* root) {
+    //base case
+    if(root == NULL) {
+        return ;
+    }
+
+    postorder(root->left);
+    postorder(root->right);
+    cout << root-> data << " ";
 
 }
 
@@ -69,6 +83,10 @@ int main(){
     cout << endl;
 
     cout<<"Preorder Traversal: " << endl;
+    preorder(root);
+    cout << endl;
+
+    cout<<"Postorder Traversal: " << endl;
     preorder(root);
     cout << endl;
 
