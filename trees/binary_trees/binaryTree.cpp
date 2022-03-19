@@ -84,6 +84,8 @@ void levelorder(Node* root) {
     queue<Node*> q;
     q.push(root);
     while(!q.empty()){
+
+        //TODO: try with .back() method and also try to figure why .pop() directly doesn't work.
         Node* temp = q.front();
         cout << temp-> data << " ";
         q.pop();
