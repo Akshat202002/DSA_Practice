@@ -14,6 +14,7 @@ class Node{
     }
 };
 
+//Building a tree
 Node* buildTree(Node* root){
     cout << "Enter the data: " << endl;
     int data;
@@ -33,9 +34,25 @@ Node* buildTree(Node* root){
 
 }
 
+//Inorder Traversal(LNR)
+void inorder(Node* root) {
+    //base case
+    if(root == NULL) {
+        return ;
+    }
+
+    inorder(root->left);
+    cout << root-> data << " ";
+    inorder(root->right);
+
+}
+
 int main(){
     Node* root = NULL;
-    buildTree(tree);
+    root = buildTree(root);
+
+    cout<<"Inorder Traversal: " << endl;
+    inorder(root);
 
     return 0;
 }
