@@ -47,12 +47,30 @@ void inorder(Node* root) {
 
 }
 
+//Preorder Traversal(NLR)
+void preorder(Node* root) {
+    //base case
+    if(root == NULL) {
+        return ;
+    }
+    cout << root-> data << " ";
+    preorder(root->left);
+    preorder(root->right);
+
+}
+
+
 int main(){
     Node* root = NULL;
     root = buildTree(root);
 
     cout<<"Inorder Traversal: " << endl;
     inorder(root);
+    cout << endl;
+
+    cout<<"Preorder Traversal: " << endl;
+    preorder(root);
+    cout << endl;
 
     return 0;
 }
