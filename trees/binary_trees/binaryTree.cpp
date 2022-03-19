@@ -1,4 +1,5 @@
 #include<iostream>
+#include<queqe>
 using namespace std;
 
 class Node{
@@ -73,6 +74,27 @@ void postorder(Node* root) {
 
 }
 
+//Levelorder Traversal(LRN)
+void levelorder(Node* root) {
+    //base case
+    if(root == NULL) {
+        return ;
+    }
+
+    queue<Node*> q;
+    q.push(root);
+    while(!q.empty()){
+        Node* temp = q.front();
+        cout << temp-> data << " ";
+        q.pop();
+        if(temp->left)
+            levelorder(temp-> left);
+        if(temp->right)
+            levelorder(temp-> right);
+    }
+
+}
+
 
 int main(){
     Node* root = NULL;
@@ -88,6 +110,10 @@ int main(){
 
     cout<<"Postorder Traversal: " << endl;
     postorder(root);
+    cout << endl;
+
+    cout << "Levelorder traversal: " << endl;
+    levelorder(root);
     cout << endl;
 
     return 0;
