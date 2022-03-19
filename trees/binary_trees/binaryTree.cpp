@@ -60,7 +60,7 @@ void preorder(Node* root) {
 
 }
 
-//Postorder Traversal(NLR)
+//Postorder Traversal(LRN)
 void postorder(Node* root) {
     //base case
     if(root == NULL) {
@@ -87,7 +87,7 @@ int main(){
     cout << endl;
 
     cout<<"Postorder Traversal: " << endl;
-    preorder(root);
+    postorder(root);
     cout << endl;
 
     return 0;
