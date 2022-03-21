@@ -1,5 +1,5 @@
 #include<iostream>
-#include<queqe>
+#include<queue>
 using namespace std;
 
 class Node{
