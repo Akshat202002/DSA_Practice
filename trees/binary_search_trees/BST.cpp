@@ -92,6 +92,62 @@ void inorder(Node* root) {
 
 }
 
+// Delete a node in BST
+Node *deleteNode(Node *root, int d)
+{
+    // base case
+    if (root == NULL)
+    {
+        return root;
+    }
+
+    // if the data is less than root, then search in left subtree
+    if (d < root->data)
+    {
+        root->left = deleteNode(root->left, d);
+    }
+    // if the data is greater than root, then search in right subtree
+    else if (d > root->data)
+    {
+        root->right = deleteNode(root->right, d);
+    }
+    // if the data is equal to root, then delete this node
+    else
+    {
+        // if node to be deleted has no children
+        if (root->left == NULL && root->right == NULL)
+        {
+            delete root;
+            root = NULL;
+        }
+        // if node to be deleted has only one child
+        else if (root->left == NULL)
+        {
+            Node *temp = root;
+            root = root->right;
+            delete temp;
+        }
+        else if (root->right == NULL)
+        {
+            Node *temp = root;
+            root = root->left;
+            delete temp;
+        }
+        // if node to be deleted has two children
+        else
+        {
+            Node *temp = root->right;
+            while (temp->left != NULL)
+            {
+                temp = temp->left;
+            }
+            root->data = temp->data;
+            root->right = deleteNode(root->right, temp->data);
+        }
+    }
+    return root;
+}
+
 int main(){
     Node* root = NULL;
     cout << "Enter data to insert in BST: " << endl;
@@ -101,6 +157,14 @@ int main(){
     levelorder(root);
     
     cout << "\nInorder"<<endl;
+    inorder(root);
+
+    cout << "\nEnter data to delete: " << endl;
+    int d;
+    cin >> d;
+    root = deleteNode(root, d);
+
+    cout << "Inorder" << endl;
     inorder(root);
 
 
