@@ -44,27 +44,39 @@ void takeInput(Node* &root){
     }
 }
 
-//Levelorder Traversal(LRN)
-void levelorder(Node* root) {
-    //base case
-    if(root == NULL) {
-        return ;
-    }
-
-    queue<Node*> q;
+// Level order traversal
+void levelorder(Node *root)
+{
+    queue<Node *> q;
+    Node *temp;
     q.push(root);
-    while(!q.empty()){
-
-        //TODO: try with .back() method and also try to figure why .pop() directly doesn't work.
-        Node* temp = q.front();
-        cout << temp-> data << " ";
+    q.push(NULL);
+    //TODO: try with .back() method and also try to figure why .pop() directly doesn't work.
+    while (!q.empty())
+    {
+        temp = q.front();
         q.pop();
-        if(temp->left)
-            q.push(temp-> left);
-        if(temp->right)
-            q.push(temp-> right);
+        if (temp == NULL)
+        {
+            cout << endl;
+            if (!q.empty())
+            {
+                q.push(NULL);
+            }
+        }
+        else
+        {
+            cout << temp->data << " ";
+            if (temp->left)
+            {
+                q.push(temp->left);
+            }
+            if (temp->right)
+            {
+                q.push(temp->right);
+            }
+        }
     }
-
 }
 
 //Inorder Traversal(LNR)
