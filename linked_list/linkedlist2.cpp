@@ -51,6 +51,10 @@ public:
         node *temp = new node;
         temp->data = data;
         node *current = head;
+        if(pos==1){
+            insert_begin(data);
+            return;
+        }
         int i = 1;
         while (i < pos - 1)
         {
